@@ -28,19 +28,19 @@ services:
     depends_on:
       - rabbitmq
 
-  # consumer:
-  #   build: ./consumer
-  #   container_name: consumer
-  #   volumes:
-  #     - ./consumer:/app
-  #     - /app/node_modules
-  #   develop:
-  #     watch:
-  #       - action: sync
-  #         path: ./consumer
-  #         target: /app
-  #         ignore:
-  #           - node_modules/
-  #   command: npm run dev
-  #   depends_on:
-  #     - rabbitmq
+  consumer:
+    build: ./consumer
+    container_name: consumer
+    volumes:
+      - ./consumer:/app
+      - /app/node_modules
+    develop:
+      watch:
+        - action: sync
+          path: ./consumer
+          target: /app
+          ignore:
+            - node_modules/
+    command: npm run dev
+    depends_on:
+      - rabbitmq
