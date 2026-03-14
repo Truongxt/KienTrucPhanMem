@@ -58,7 +58,6 @@ async function connect() {
     }
 }
 
-// API Login - Lấy JWT token
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
 
