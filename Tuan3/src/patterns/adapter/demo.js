@@ -1,3 +1,9 @@
+/*
+Adapter Pattern: JSON <-> XML bridge
+
+JSON payload -> XmlJsonAdapter -> LegacyXmlSystem
+                                   XML response -> adapter -> JSON
+*/
 const JsonWebService = require("./JsonWebService");
 const LegacyXmlSystem = require("./LegacyXmlSystem");
 const XmlJsonAdapter = require("./XmlJsonAdapter");

@@ -1,3 +1,12 @@
+/*
+Observer Pattern: Stock price notifications
+
+Stock (Subject)
+  -> Investor Kien
+  -> Investor Linh
+
+When price changes, Stock.notify() calls update() on each Investor.
+*/
 const Stock = require("./Stock");
 const Investor = require("./Investor");
 

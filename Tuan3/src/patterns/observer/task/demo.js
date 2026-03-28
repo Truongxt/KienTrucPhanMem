@@ -1,3 +1,12 @@
+/*
+Observer Pattern: Task status notifications
+
+Task (Subject)
+  -> TeamMember An
+  -> TeamMember Binh
+
+When status changes, Task.notify() calls update() on each TeamMember.
+*/
 const Task = require("./Task");
 const TeamMember = require("./TeamMember");
 

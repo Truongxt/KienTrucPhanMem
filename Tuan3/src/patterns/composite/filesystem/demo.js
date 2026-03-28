@@ -1,3 +1,18 @@
+/*
+Composite Pattern: File system tree structure
+
+FolderComposite (root)
+  + documents
+    - report.pdf
+    - notes.txt
+  + images
+    - logo.png
+    - banner.jpg
+  - readme.md
+
+Each FolderComposite can contain FileLeaf or FolderComposite.
+FileLeaf is a leaf node and cannot contain children.
+*/
 const FileLeaf = require("./FileLeaf");
 const FolderComposite = require("./FolderComposite");
 

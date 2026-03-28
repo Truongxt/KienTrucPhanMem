@@ -1,3 +1,12 @@
+/*
+Library System: multiple design patterns
+
+Singleton: Library.getInstance()
+Factory: BookFactory.createBook(type, data)
+Strategy: SearchByTitle / SearchByAuthor / SearchByGenre
+Observer: Library subscribes LibraryStaff and UserFollower
+Decorator: BasicBorrow -> ExtendedBorrowDecorator -> SpecialEditionDecorator
+*/
 const Library = require("./singleton/Library");
 const BookFactory = require("./factory/BookFactory");
 const SearchByTitle = require("./strategy/SearchByTitle");
