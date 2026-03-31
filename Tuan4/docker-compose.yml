@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # Bài 1: Node.js
+  nodejs-app:
+    build:
+      context: ./Bai1_NodeJS
+    ports:
+      - "3001:3000"
+    container_name: nodejs-app
+    restart: unless-stopped
+
+  # Bài 2: Flask
+  flask-app:
+    build:
+      context: ./Bai2_Flask
+    ports:
+      - "5000:5000"
+    container_name: flask-app
+    restart: unless-stopped
+
+  # Bài 4: Nginx
+  nginx-app:
+    build:
+      context: ./Bai4_Nginx
+    ports:
+      - "80:80"
+    container_name: nginx-app
+    restart: unless-stopped
+
+  # Bài 5: Go
+  go-app:
+    build:
+      context: ./Bai5_Go
+    ports:
+      - "8080:8080"
+    container_name: go-app
+    restart: unless-stopped
+
+  # Bài 8: PostgreSQL
+  postgres-app:
+    build:
+      context: ./Bai8_PostgreSQL
+    ports:
+      - "5432:5432"
+    container_name: postgres-app
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: docker_db
+      POSTGRES_USER: docker_user
+      POSTGRES_PASSWORD: docker_password
+    restart: unless-stopped
+
+  # Bài 9: Redis
+  redis-app:
+    build:
+      context: ./Bai9_Redis
+    ports:
+      - "6379:6379"
+    container_name: redis-app
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  # Bài 10: PHP-Apache
+  php-app:
+    build:
+      context: ./Bai10_PHP
+    ports:
+      - "8000:80"
+    container_name: php-app
+    volumes:
+      - ./Bai10_PHP:/var/www/html
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
