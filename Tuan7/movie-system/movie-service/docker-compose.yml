@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  movie-service:
+    build: .
+    ports:
+      - "8082:8082"
+    environment:
+      - MONGODB_URI=mongodb://movie-db:27017/movie_movie_db
+    depends_on:
+      - movie-db
+
+  movie-db:
+    image: mongo:latest
+    ports:
+      - "27019:27017" # Mapping to different port locally
+    volumes:
+      - movie-db-data:/data/db
+
+volumes:
+  movie-db-data:
