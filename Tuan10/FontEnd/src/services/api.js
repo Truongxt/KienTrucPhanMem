@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-const USER_SERVICE_URL = 'http://172.16.54.78:8081';
-const FOOD_SERVICE_URL = 'http://172.16.48.24:8082';
-const ORDER_SERVICE_URL = 'http://172.16.48.141:8083';
-const PAYMENT_SERVICE_URL = 'http://172.16.35.88:8084';
+const API_GATEWAY_URL = import.meta.env.VITE_API_GATEWAY_URL || 'http://localhost:8000';
 
 
 const createInstance = (baseURL) => {
@@ -26,10 +23,9 @@ const createInstance = (baseURL) => {
     return instance;
 };
 
-export const userApi = createInstance(USER_SERVICE_URL);
-export const foodApi = createInstance(FOOD_SERVICE_URL);
-export const orderApi = createInstance(ORDER_SERVICE_URL);
-export const paymentApi = createInstance(PAYMENT_SERVICE_URL);
+export const userApi = createInstance(API_GATEWAY_URL);
+export const foodApi = createInstance(API_GATEWAY_URL);
+export const orderApi = createInstance(API_GATEWAY_URL);
+export const paymentApi = createInstance(API_GATEWAY_URL);
 
 export default userApi; // default as userApi for backward compatibility if needed
-
